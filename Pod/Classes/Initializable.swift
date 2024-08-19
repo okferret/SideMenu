@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol InitializableClass: class {
+protocol InitializableClass: AnyObject {
     init()
 }
 
@@ -16,24 +16,26 @@ extension InitializableClass {
         self.init()
         block(self)
     }
-
+    
     @discardableResult func with(_ block: (Self) -> Void) -> Self {
         block(self)
         return self
     }
 }
 
-public protocol InitializableStruct {
+protocol InitializableStruct {
     init()
 }
 
-public extension InitializableStruct {
-    init(_ block: (inout Self) -> Void) {
+extension InitializableStruct {
+    
+    internal init(_ block: (inout Self) -> Void) {
         self.init()
         block(&self)
     }
-
-    @discardableResult mutating func with(_ block: (inout Self) -> Void) -> Self {
+    
+    @discardableResult
+    internal mutating func with(_ block: (inout Self) -> Void) -> Self {
         block(&self)
         return self
     }

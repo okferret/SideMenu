@@ -15,13 +15,14 @@ protocol CoordinatorModel {
 
 protocol Coordinator {
     associatedtype Model: CoordinatorModel
-
+    
     init(config: Model)
     @discardableResult func start() -> Bool
 }
 
-internal final class SideMenuPushCoordinator: Coordinator {
-
+/// SideMenuPushCoordinator
+final class SideMenuPushCoordinator: Coordinator {
+    
     struct Model: CoordinatorModel {
         var allowPushOfSameClassTwice: Bool
         var alongsideTransition: (() -> Void)?
@@ -30,17 +31,18 @@ internal final class SideMenuPushCoordinator: Coordinator {
         var pushStyle: SideMenuPushStyle
         var toViewController: UIViewController
     }
-
+    
     private let config: Model
-
-    init(config: Model) {
+    
+    internal init(config: Model) {
         self.config = config
     }
-
-    @discardableResult func start() -> Bool {
+    
+    @discardableResult
+    internal func start() -> Bool {
         guard config.pushStyle != .subMenu,
-            let fromNavigationController = config.fromViewController as? UINavigationController else {
-                return false
+              let fromNavigationController = config.fromViewController as? UINavigationController else {
+            return false
         }
         let toViewController = config.toViewController
         let presentingViewController = fromNavigationController.presentingViewController
@@ -51,7 +53,7 @@ internal final class SideMenuPushCoordinator: Coordinator {
             Print.warning(.cannotPush, arguments: String(describing: potentialNavigationController.self), required: true)
             return false
         }
-
+        
         // To avoid overlapping dismiss & pop/push calls, create a transaction block where the menu
         // is dismissed after showing the appropriate screen
         CATransaction.begin()
@@ -59,24 +61,24 @@ internal final class SideMenuPushCoordinator: Coordinator {
         UIView.animationsEnabled { [weak self] in
             self?.config.alongsideTransition?()
         }
-
+        
         if let lastViewController = navigationController.viewControllers.last,
-            !config.allowPushOfSameClassTwice && type(of: lastViewController) == type(of: toViewController) {
+           !config.allowPushOfSameClassTwice && type(of: lastViewController) == type(of: toViewController) {
             return false
         }
-
+        
         toViewController.navigationItem.hidesBackButton = config.pushStyle.hidesBackButton
-
+        
         switch config.pushStyle {
-
+            
         case .default:
             navigationController.pushViewController(toViewController, animated: config.animated)
             return true
-
-        // subMenu handled earlier
+            
+            // subMenu handled earlier
         case .subMenu:
             return false
-
+            
         case .popWhenPossible:
             for subViewController in navigationController.viewControllers.reversed() {
                 if type(of: subViewController) == type(of: toViewController) {
@@ -86,7 +88,7 @@ internal final class SideMenuPushCoordinator: Coordinator {
             }
             navigationController.pushViewController(toViewController, animated: config.animated)
             return true
-
+            
         case .preserve, .preserveAndHideBackButton:
             var viewControllers = navigationController.viewControllers
             let filtered = viewControllers.filter { preservedViewController in type(of: preservedViewController) == type(of: toViewController) }
@@ -98,7 +100,7 @@ internal final class SideMenuPushCoordinator: Coordinator {
             viewControllers.append(preservedViewController)
             navigationController.setViewControllers(viewControllers, animated: config.animated)
             return true
-
+            
         case .replace:
             navigationController.setViewControllers([toViewController], animated: config.animated)
             return true

@@ -7,7 +7,8 @@
 
 import Foundation
 
-internal final class Protected<T: Equatable> {
+/// Protected<T: Equatable>
+final class Protected<T: Equatable> {
 
     typealias ConditionBlock = (_ oldValue: T, T) -> T
 
@@ -19,7 +20,7 @@ internal final class Protected<T: Equatable> {
         set { _value = condition(_value, newValue) }
     }
 
-    init(_ value: T, when condition: @escaping ConditionBlock) {
+    internal init(_ value: T, when condition: @escaping ConditionBlock) {
         self._value = value
         self.condition = condition
     }

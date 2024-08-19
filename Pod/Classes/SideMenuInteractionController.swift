@@ -7,41 +7,42 @@
 
 import UIKit
 
-internal final class SideMenuInteractionController: UIPercentDrivenInteractiveTransition {
-
+/// SideMenuInteractionController
+final class SideMenuInteractionController: UIPercentDrivenInteractiveTransition {
+    
     enum State { case
         update(progress: CGFloat),
         finish,
         cancel
     }
-
+    
     private(set) var isCancelled: Bool = false
     private(set) var isFinished: Bool = false
-
-    init(cancelWhenBackgrounded: Bool = true, completionCurve: UIView.AnimationCurve = .easeIn) {
+    
+    internal init(cancelWhenBackgrounded: Bool = true, completionCurve: UIView.AnimationCurve = .easeIn) {
         super.init()
         self.completionCurve = completionCurve
-
+        
         guard cancelWhenBackgrounded else { return }
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
-
-    override func cancel() {
+    
+    internal override func cancel() {
         isCancelled = true
         super.cancel()
     }
-
-    override func finish() {
+    
+    internal override func finish() {
         isFinished = true
         super.finish()
     }
-
-    override func update(_ percentComplete: CGFloat) {
+    
+    internal override func update(_ percentComplete: CGFloat) {
         guard !isCancelled && !isFinished else { return }
         super.update(percentComplete)
     }
-
-    func handle(state: State) {
+    
+    internal func handle(state: State) {
         switch state {
         case .update(let progress):
             update(progress)
@@ -53,9 +54,9 @@ internal final class SideMenuInteractionController: UIPercentDrivenInteractiveTr
     }
 }
 
-private extension SideMenuInteractionController {
-
-    @objc func handleNotification(notification: NSNotification) {
+extension SideMenuInteractionController {
+    
+    @objc private func handleNotification(notification: NSNotification) {
         switch notification.name {
         case UIApplication.didEnterBackgroundNotification:
             cancel()
