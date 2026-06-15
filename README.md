@@ -1,296 +1,318 @@
 # ▤ SideMenu
-[![CircleCI](https://circleci.com/gh/jonkykong/SideMenu.svg?style=svg)](https://circleci.com/gh/jonkykong/SideMenu)
-[![Version](https://img.shields.io/cocoapods/v/SideMenu.svg?style=flat-square)](http://cocoapods.org/pods/SideMenu)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/SideMenu.svg?style=flat-square)](http://cocoapods.org/pods/SideMenu)
-[![Platform](https://img.shields.io/cocoapods/p/SideMenu.svg?style=flat-square)](http://cocoapods.org/pods/SideMenu)
 
-### If you like SideMenu, give it a ★ at the top right of this page.
-#### SideMenu needs your help! If you're a skilled iOS developer and want to help maintain this repository and answer issues asked by the community, please [send me an email](mailto:yo@massappeal.co?subject=I%20Want%20To%20Help!).
+[![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg?style=flat-square)](https://swift.org)
+[![Platforms](https://img.shields.io/badge/Platforms-iOS%2013%20%7C%20tvOS%2013%20%7C%20macCatalyst%2013-blue.svg?style=flat-square)](https://developer.apple.com)
+[![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg?style=flat-square)](https://swift.org/package-manager/)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
-> Hi, I'm Jon Kent and I am an iOS designer, developer, and mobile strategist. I love coffee and play the drums.
-> * [**Hire me**](mailto:yo@massappeal.co?subject=Let's%20build%20something%20amazing) to help you make cool stuff. *Note: If you're having a problem with SideMenu, please open an [issue](https://github.com/jonkykong/SideMenu/issues/new) and do not email me.*
-> * Check out my [website](http://massappeal.co) to see some of my other projects.
-> * Building and maintaining this **free** library takes a lot of my time and **saves you time**. Please consider paying it forward by supporting me with a small amount to my [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=contact%40jonkent%2eme&lc=US&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted). (only **13** people have donated since 12/23/15 but **thank you** to those who have!)
+> 这是 [jonkykong/SideMenu](https://github.com/jonkykong/SideMenu) 的一个维护性 fork，主要面向 Swift Package Manager + 现代 Swift Concurrency（`@MainActor` / Strict Concurrency）。原仓库已不再活跃维护，本仓库聚焦于：
+> - 升级 Swift 工具链至 **5.9+**，开启 `StrictConcurrency` / `InferSendableFromCaptures`。
+> - 抬升最低部署版本至 **iOS 13 / tvOS 13 / macCatalyst 13**。
+> - 仅以 **Swift Package Manager** 形式分发（不再维护 CocoaPods / Carthage）。
+> - 修复在新工具链下的若干编译与运行时崩溃问题。
 
-* **[Overview](#overview)**
-  * [Preview Samples](#preview-samples) 
-* **[Requirements](#requirements)**
-* **[Installation](#installation)**
-  * [CocoaPods](#cocoapods)
-  * [Carthage](#carthage)
+* **[概览](#概览)**
+  * [效果预览](#效果预览)
+* **[环境要求](#环境要求)**
+* **[安装](#安装)**
   * [Swift Package Manager](#swift-package-manager)
-* **[Usage](#usage)**
-  * [Code-less Storyboard Implementation](#code-less-storyboard-implementation)
-  * [Code Implementation](#code-implementation)
-* **[Customization](#customization)**
+* **[使用](#使用)**
+  * [Storyboard 零代码接入](#storyboard-零代码接入)
+  * [代码接入](#代码接入)
+* **[自定义](#自定义)**
   * [SideMenuManager](#sidemenumanager)
   * [SideMenuNavigationController](#sidemenunavigationcontroller)
+  * [SideMenuPresentationStyle](#sidemenupresentationstyle)
   * [SideMenuNavigationControllerDelegate](#sidemenunavigationcontrollerdelegate)
-  * [Advanced](#advanced)
-* [Known Issues](#known-issues)
-* [Thank You](#thank-you)
+  * [进阶](#进阶)
+* [已知问题](#已知问题)
 * [License](#license)
 
-## Overview
+## 概览
 
-SideMenu is a simple and versatile side menu control written in Swift.
-- [x] **It can be implemented in storyboard without a single line of [code](#code-less-storyboard-implementation).**
-- [x] Eight standard animation styles to choose from (there's even a parallax effect if you want to get weird).
-- [x] Highly customizable without needing to write tons of custom code.
-- [x] Supports continuous swiping between side menus on boths sides in a single gesture.
-- [x] Global menu configuration. Set-up once and be done for all screens.
-- [x] Menus can be presented and dismissed the same as any other view controller since this control uses [custom transitions](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html).
-- [x] Animations use your view controllers, not snapshots.
-- [x] Properly handles screen rotation and in-call status bar height changes.
+SideMenu 是一个用 Swift 编写的、轻量且高度可定制的侧边菜单控件。
 
-Check out the example project to see it in action!
-### Preview Samples
+- [x] 支持 [纯 Storyboard 零代码接入](#storyboard-零代码接入)。
+- [x] 内置 8 种预设动画样式（包含视差效果），并支持自定义。
+- [x] 高度可定制，无需编写大量样板代码。
+- [x] 支持单次手势在左右两个菜单之间连续滑动切换。
+- [x] 全局菜单配置：一次设置，全局生效。
+- [x] 基于 [自定义转场](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html)，可像普通控制器一样 `present` / `dismiss`。
+- [x] 动画作用于真实的视图控制器，而非快照。
+- [x] 正确处理屏幕旋转和通话状态栏高度变化。
+- [x] 全面适配 Swift Concurrency（[`@MainActor`](Sources/SideMenu/SideMenuNavigationController.swift:124) 隔离）。
+
+### 效果预览
+
 | Slide Out | Slide In | Dissolve | Slide In + Out |
 | --- | --- | --- | --- |
-| ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideOut.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/SlideIn.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Dissolve.gif) | ![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/InOut.gif) |
+| ![](etc/SlideOut.gif) | ![](etc/SlideIn.gif) | ![](etc/Dissolve.gif) | ![](etc/InOut.gif) |
 
-## Requirements
-- [x] Xcode 11.
-- [x] Swift 5.
-- [x] iOS 10 or higher.
+## 环境要求
 
-## Installation
-### CocoaPods
+- [x] Xcode 15 或更高版本
+- [x] Swift 5.9+
+- [x] iOS 13 / tvOS 13 / macCatalyst 13 或更高版本
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To integrate SideMenu into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
-use_frameworks!
-
-pod 'SideMenu'
-
-# For Swift 5 use:
-# pod 'SideMenu', '~> 6.0'
-
-# For Swift 4.2 (no longer maintained) use:
-# pod 'SideMenu', '~> 5.0'
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate SideMenu into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "jonkykong/SideMenu" "master"
-```
+## 安装
 
 ### Swift Package Manager
 
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but SideMenu does support its use on supported platforms.
+[Swift Package Manager](https://swift.org/package-manager/) 是 Apple 官方的依赖管理工具，已集成进 Swift 编译器。
 
-Once you have your Swift package set up, adding SideMenu as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+#### 通过 Xcode
+
+`File` → `Add Packages…` 中输入仓库地址：
+
+```
+https://github.com/okferret/SideMenu.git
+```
+
+#### 通过 [`Package.swift`](Package.swift:1)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/jonkykong/SideMenu.git", from: "6.0.0")
+    .package(url: "https://github.com/okferret/SideMenu.git", branch: "master")
 ]
 ```
 
-## Usage
-### Code-less Storyboard Implementation
-1. Create a Navigation Controller for a side menu. Set the `Custom Class` of the Navigation Controller to be `SideMenuNavigationController` in the **Identity Inspector**. Set the `Module` to `SideMenu` (ignore this step if you've manually added SideMenu to your project). Create a Root View Controller for the Navigation Controller (shown as a UITableViewController below). Set up any Triggered Segues you want in that view controller.
-![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Screenshot1.png)
+然后在目标依赖中加入：
 
-2. Set the `Left Side` property of the `SideMenuNavigationController` to On if you want it to appear from the left side of the screen, or Off/Default if you want it to appear from the right side.
-![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Screenshot2.png)
+```swift
+.target(
+    name: "YourApp",
+    dependencies: ["SideMenu"]
+)
+```
 
-3. Add a UIButton or UIBarButton to a view controller that you want to display the menu from. Set that button's Triggered Segues action to modally present the Navigation Controller from step 1.
-![](https://raw.githubusercontent.com/jonkykong/SideMenu/master/etc/Screenshot3.png)
+> ⚠️ 本 fork 不再维护 CocoaPods 与 Carthage 集成方式。如需通过 CocoaPods/Carthage 引入，请使用上游 [jonkykong/SideMenu](https://github.com/jonkykong/SideMenu)。
 
-That's it. *Note: you can only enable gestures in code.*
-### Code Implementation
-First:
+## 使用
+
+### Storyboard 零代码接入
+
+1. 创建一个用于侧边菜单的 `UINavigationController`。在 **Identity Inspector** 中将其 `Custom Class` 设为 `SideMenuNavigationController`，`Module` 设为 `SideMenu`。为它设置一个根视图控制器（如下图为 `UITableViewController`），并在其上配置 `Triggered Segues`。
+   ![](etc/Screenshot1.png)
+2. 将 `SideMenuNavigationController` 的 `Left Side` 属性设为 On 表示从左侧弹出，关闭则从右侧弹出。
+   ![](etc/Screenshot2.png)
+3. 在希望唤起菜单的页面上添加 `UIButton` 或 `UIBarButtonItem`，将其 `Triggered Segues` 设置为以 modal 方式 present 第 1 步创建的 navigation controller。
+   ![](etc/Screenshot3.png)
+
+完成。*注：手势仍需通过代码方式启用。*
+
+### 代码接入
+
 ```swift
 import SideMenu
 ```
 
-From a button, do something like this:
-``` swift
-// Define the menu
-let menu = SideMenuNavigationController(rootViewController: YourViewController)
-// SideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration 
-// of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
+从一个按钮事件中弹出菜单：
+
+```swift
+// 定义菜单
+let menu = SideMenuNavigationController(rootViewController: YourViewController())
+// SideMenuNavigationController 是 UINavigationController 的子类，
+// 这里可以做任意附加的配置，例如 setViewControllers 等。
+// 若使用 storyboard:
 // let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
 present(menu, animated: true, completion: nil)
 ```
 
-To dismiss a menu programmatically, do something like this:
-``` swift
+以编程方式关闭菜单：
+
+```swift
 dismiss(animated: true, completion: nil)
 ```
 
-To use gestures you have to use the `SideMenuManager`. In your `AppDelegate` do something like this:
-``` swift
-// Define the menus
-let leftMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController)
+若需要使用手势，则要借助 [`SideMenuManager`](Sources/SideMenu/SideMenuManager.swift:12)。在 `AppDelegate` / `SceneDelegate` 中：
+
+```swift
+// 定义菜单
+let leftMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController())
 SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
 
-let rightMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController)
+let rightMenuNavigationController = SideMenuNavigationController(rootViewController: YourViewController())
 SideMenuManager.default.rightMenuNavigationController = rightMenuNavigationController
 
-// Setup gestures: the left and/or right menus must be set up (above) for these to work.
-// Note that these continue to work on the Navigation Controller independent of the view controller it displays!
-SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+// 注册手势：左右菜单需先设置（同上）
+// 这些手势会绑定到 navigation controller 上，与其当前展示的 view controller 无关
+SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
+SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: navigationController!.view)
 
-// (Optional) Prevent status bar area from turning black when menu appears:
+// （可选）防止菜单出现时状态栏区域变黑
 leftMenuNavigationController.statusBarEndAlpha = 0
-// Copy all settings to the other menu
+// 将左菜单的所有设置复制到右菜单
 rightMenuNavigationController.settings = leftMenuNavigationController.settings
 ```
-That's it.
-### Customization
-#### SideMenuManager
-`SideMenuManager` supports the following:
-``` swift
-/// The left menu.
+
+完成。
+
+## 自定义
+
+### SideMenuManager
+
+[`SideMenuManager`](Sources/SideMenu/SideMenuManager.swift:12) 提供以下能力：
+
+```swift
+/// 左侧菜单
 open var leftMenuNavigationController: SideMenuNavigationController?
-/// The right menu.
-public var rightMenuNavigationController: SideMenuNavigationController?
-/**
- Adds screen edge gestures for both left and right sides to a view to present a menu.
+/// 右侧菜单
+open var rightMenuNavigationController: SideMenuNavigationController?
 
- - Parameter toView: The view to add gestures to.
+/// 同时为左右两侧添加屏幕边缘手势
+@discardableResult
+public func addScreenEdgePanGesturesToPresent(toView view: UIView) -> [UIScreenEdgePanGestureRecognizer]
 
- - Returns: The array of screen edge gestures added to `toView`.
- */
-@discardableResult public func addScreenEdgePanGesturesToPresent(toView view: UIView) -> [UIScreenEdgePanGestureRecognizer]
-/**
- Adds screen edge gestures to a view to present a menu.
+/// 仅为指定一侧添加屏幕边缘手势
+@discardableResult
+public func addScreenEdgePanGesturesToPresent(toView view: UIView, forMenu side: PresentDirection) -> UIScreenEdgePanGestureRecognizer
 
- - Parameter toView: The view to add gestures to.
- - Parameter forMenu: The menu (left or right) you want to add a gesture for.
-
- - Returns: The screen edge gestures added to `toView`.
- */
-@discardableResult public func addScreenEdgePanGesturesToPresent(toView view: UIView, forMenu side: PresentDirection) -> UIScreenEdgePanGestureRecognizer
-/**
- Adds a pan edge gesture to a view to present menus.
-
- - Parameter toView: The view to add a pan gesture to.
-
- - Returns: The pan gesture added to `toView`.
- */
-@discardableResult public func addPanGestureToPresent(toView view: UIView) -> UIPanGestureRecognizer
+/// 添加 Pan 手势用以唤起菜单（自动判定左右）
+@discardableResult
+public func addPanGestureToPresent(toView view: UIView) -> UIPanGestureRecognizer
 ```
-#### SideMenuNavigationController
-`SideMenuNavigationController` supports the following:
-``` swift
-/// Prevents the same view controller (or a view controller of the same class) from being pushed more than once. Defaults to true.
+
+### SideMenuNavigationController
+
+[`SideMenuNavigationController`](Sources/SideMenu/SideMenuNavigationController.swift:126) 暴露的可配置属性（来自 [`SideMenuSettings`](Sources/SideMenu/SideMenuNavigationController.swift:86)）：
+
+```swift
+/// 同一个类的 view controller 是否允许重复 push。默认 true。
 var allowPushOfSameClassTwice: Bool = true
-/// Forces menus to always animate when appearing or disappearing, regardless of a pushed view controller's animation.
+/// 即便被 push 的 view controller 不带动画，也强制菜单转场带动画。
 var alwaysAnimate: Bool = true
-/// The animation options when a menu is displayed. Ignored when displayed with a gesture.
+/// 通过非手势方式展示菜单时使用的动画曲线。
 var animationOptions: UIView.AnimationOptions = .curveEaseInOut
-/**
- The blur effect style of the menu if the menu's root view controller is a UITableViewController or UICollectionViewController.
-
- - Note: If you want cells in a UITableViewController menu to show vibrancy, make them a subclass of UITableViewVibrantCell.
- */
+/// 当菜单根视图控制器是 UITableViewController / UICollectionViewController 时的毛玻璃样式。
+/// 若希望 cell 拥有 vibrancy 效果，请继承 `UITableViewVibrantCell`。
 var blurEffectStyle: UIBlurEffect.Style? = nil
-/// Duration of the remaining animation when the menu is partially dismissed with gestures. Default is 0.35 seconds.
+/// 手势导致菜单部分关闭时，剩余动画的时长。默认 0.35s。
 var completeGestureDuration: Double = 0.35
-/// Animation curve of the remaining animation when the menu is partially dismissed with gestures. Default is .easeIn.
-var completionCurve: UIView.AnimationCurve = .curveEaseInOut
-/// Duration of the animation when the menu is dismissed without gestures. Default is 0.35 seconds.
+/// 手势导致菜单部分关闭时，剩余动画的曲线。默认 .easeIn。
+var completionCurve: UIView.AnimationCurve = .easeIn
+/// 非手势 dismiss 时的动画时长。默认 0.35s。
 var dismissDuration: Double = 0.35
-/// Automatically dismisses the menu when another view is presented from it.
+/// 当从菜单中 present 其他控制器时，自动关闭菜单。
 var dismissOnPresent: Bool = true
-/// Automatically dismisses the menu when another view controller is pushed from it.
+/// 当从菜单中 push 其他控制器时，自动关闭菜单。
 var dismissOnPush: Bool = true
-/// Automatically dismisses the menu when the screen is rotated.
+/// 屏幕旋转时自动关闭菜单。
 var dismissOnRotation: Bool = true
-/// Automatically dismisses the menu when app goes to the background.
+/// 进入后台时自动关闭菜单。
 var dismissWhenBackgrounded: Bool = true
-/// Enable or disable a swipe gesture that dismisses the menu. Will not be triggered when `presentingViewControllerUserInteractionEnabled` is set to true. Default is true.
+/// 是否启用滑动关闭手势（`presentingViewControllerUserInteractionEnabled = true` 时无效）。
 var enableSwipeToDismissGesture: Bool = true
-/// Enable or disable a tap gesture that dismisses the menu. Will not be triggered when `presentingViewControllerUserInteractionEnabled` is set to true. Default is true.
+/// 是否启用点击外部关闭手势（`presentingViewControllerUserInteractionEnabled = true` 时无效）。
 var enableTapToDismissGesture: Bool = true
-/// The animation initial spring velocity when a menu is displayed. Ignored when displayed with a gesture.
+/// 弹簧动画初始速度。
 var initialSpringVelocity: CGFloat = 1
-/// Whether the menu appears on the right or left side of the screen. Right is the default. This property cannot be changed after the menu has loaded.
+/// 菜单出现的方向。true = 左侧；false（默认）= 右侧。**菜单加载后不可变更**。
 var leftSide: Bool = false
-/// Width of the menu when presented on screen, showing the existing view controller in the remaining space. Default is zero.
+/// 菜单宽度，剩余区域显示原 view controller。
 var menuWidth: CGFloat = 240
-/// Duration of the animation when the menu is presented without gestures. Default is 0.35 seconds.
+/// 非手势 present 的动画时长。默认 0.35s。
 var presentDuration: Double = 0.35
-/// Enable or disable interaction with the presenting view controller while the menu is displayed. Enabling may make it difficult to dismiss the menu or cause exceptions if the user tries to present and already presented menu. `presentingViewControllerUseSnapshot` must also set to false. Default is false.
+/// 菜单显示期间，原 presenting view controller 是否可交互。
+/// 开启可能导致难以关闭菜单或重复 present 的异常。需同时关闭 `presentingViewControllerUseSnapshot`。
 var presentingViewControllerUserInteractionEnabled: Bool = false
-/// Use a snapshot for the presenting vierw controller while the menu is displayed. Useful when layout changes occur during transitions. Not recommended for apps that support rotation. Default is false.
+/// 菜单显示期间，是否对 presenting view controller 使用快照。
+/// 适用于转场期间布局发生变化的场景；不建议在支持旋转的 App 中使用。
 var presentingViewControllerUseSnapshot: Bool = false
-/// The presentation style of the menu.
-var presentationStyle: SideMenuPresentStyle = .viewSlideOut
-/**
- The push style of the menu.
-
- There are six modes in MenuPushStyle:
- - defaultBehavior: The view controller is pushed onto the stack.
- - popWhenPossible: If a view controller already in the stack is of the same class as the pushed view controller, the stack is instead popped back to the existing view controller. This behavior can help users from getting lost in a deep navigation stack.
- - preserve: If a view controller already in the stack is of the same class as the pushed view controller, the existing view controller is pushed to the end of the stack. This behavior is similar to a UITabBarController.
- - preserveAndHideBackButton: Same as .preserve and back buttons are automatically hidden.
- - replace: Any existing view controllers are released from the stack and replaced with the pushed view controller. Back buttons are automatically hidden. This behavior is ideal if view controllers require a lot of memory or their state doesn't need to be preserved..
- - subMenu: Unlike all other behaviors that push using the menu's presentingViewController, this behavior pushes view controllers within the menu.  Use this behavior if you want to display a sub menu.
- */
-var pushStyle: MenuPushStyle = .default
-/// Draws `presentationStyle.backgroundColor` behind the status bar. Default is 0.
+/// 菜单的展示样式。
+var presentationStyle: SideMenuPresentationStyle = .viewSlideOut
+/// 菜单内 push 行为，详见 `SideMenuPushStyle`。
+var pushStyle: SideMenuPushStyle = .default
+/// 在状态栏下绘制 `presentationStyle.backgroundColor`。
 var statusBarEndAlpha: CGFloat = 0
-/// The animation spring damping when a menu is displayed. Ignored when displayed with a gesture.
+/// 弹簧动画阻尼。
 var usingSpringWithDamping: CGFloat = 1
-/// Indicates if the menu is anywhere in the view hierarchy, even if covered by another view controller.
-var isHidden: Bool
+/// 菜单是否仍存在于视图层级中（即便被其它 view controller 覆盖）。
+var isHidden: Bool { get }
 ```
-#### SideMenuPresentStyle
-There are 8 pre-defined `SideMenuPresentStyle` options:
-``` swift
-/// Menu slides in over the existing view.
-static let menuSlideIn: SideMenuPresentStyle
-/// The existing view slides out to reveal the menu underneath.
-static let viewSlideOut: SideMenuPresentStyle
-/// The existing view slides out while the menu slides in.
-static let viewSlideOutMenuIn: SideMenuPresentStyle
-/// The menu dissolves in over the existing view.
-static let menuDissolveIn: SideMenuPresentStyle
-/// The existing view slides out while the menu partially slides in.
-static let viewSlideOutMenuPartialIn: SideMenuPresentStyle
-/// The existing view slides out while the menu slides out from under it.
-static let viewSlideOutMenuOut: SideMenuPresentStyle
-/// The existing view slides out while the menu partially slides out from under it.
-static let viewSlideOutMenuPartialOut: SideMenuPresentStyle
-/// The existing view slides out and shrinks to reveal the menu underneath.
-static let viewSlideOutMenuZoom: SideMenuPresentStyle
+
+> 注意：原仓库的 `MenuPushStyle` 与 `SideMenuPresentStyle` 在本 fork 中已分别更名为 [`SideMenuPushStyle`](Sources/SideMenu/SideMenuNavigationController.swift:10) 与 [`SideMenuPresentationStyle`](Sources/SideMenu/SideMenuPresentationStyle.swift:1)。
+
+[`SideMenuPushStyle`](Sources/SideMenu/SideMenuNavigationController.swift:10) 包含 6 种模式：
+
+- `default`：常规 push 进入栈。
+- `popWhenPossible`：若栈中已存在同类 view controller，则回退到该实例。
+- `preserve`：若栈中已存在同类 view controller，则将其移动到栈顶（类似 `UITabBarController`）。
+- `preserveAndHideBackButton`：同 `preserve`，并隐藏返回按钮。
+- `replace`：清空原栈并替换为新的 view controller，自动隐藏返回按钮。
+- `subMenu`：在菜单内部 push（而非通过 presenting view controller），用于实现多级子菜单。
+
+### SideMenuPresentationStyle
+
+内置 8 种预设的 [`SideMenuPresentationStyle`](Sources/SideMenu/SideMenuPresentationStyle.swift:1)：
+
+```swift
+/// 菜单从一侧滑入，覆盖在原视图之上。
+static let menuSlideIn: SideMenuPresentationStyle
+/// 原视图向一侧滑出，露出底部菜单。
+static let viewSlideOut: SideMenuPresentationStyle
+/// 原视图滑出的同时菜单滑入。
+static let viewSlideOutMenuIn: SideMenuPresentationStyle
+/// 菜单淡入覆盖在原视图之上。
+static let menuDissolveIn: SideMenuPresentationStyle
+/// 原视图滑出，菜单部分滑入。
+static let viewSlideOutMenuPartialIn: SideMenuPresentationStyle
+/// 原视图滑出的同时菜单也向同方向滑出。
+static let viewSlideOutMenuOut: SideMenuPresentationStyle
+/// 原视图滑出，菜单部分向同方向滑出。
+static let viewSlideOutMenuPartialOut: SideMenuPresentationStyle
+/// 原视图滑出并缩放，露出底部菜单。
+static let viewSlideOutMenuZoom: SideMenuPresentationStyle
 ```
-#### SideMenuNavigationControllerDelegate
-To receive notifications when a menu is displayed from a view controller, have it adhere to the  `SideMenuNavigationControllerDelegate` protocol:
-``` swift
+
+如需自定义，只需继承 `SideMenuPresentationStyle` 并设置到 `presentationStyle`：
+
+```swift
+final class MyPresentStyle: SideMenuPresentationStyle {
+
+    override init() {
+        super.init()
+        /// 视图与状态栏背后的背景色
+        backgroundColor = .black
+        /// 菜单出现前的初始 alpha
+        menuStartAlpha = 1
+        /// 菜单是否在最上层；为 false 时 presenting view 在最上层。阴影应用在最上层视图上。
+        menuOnTop = false
+        /// 菜单沿 x 轴的位移。0 不动；负值表示移出屏幕；正值表示进入屏幕。
+        menuTranslateFactor = 0
+        /// 菜单缩放系数；< 1 缩小；> 1 放大。
+        menuScaleFactor = 1
+        /// 最上层视图的阴影颜色。
+        onTopShadowColor = .black
+        /// 最上层视图的阴影半径。
+        onTopShadowRadius = 5
+        /// 最上层视图的阴影透明度。
+        onTopShadowOpacity = 0
+        /// 最上层视图的阴影偏移。
+        onTopShadowOffset = .zero
+        /// 菜单完全展示时，presenting view 的最终 alpha。
+        presentingEndAlpha = 1
+        /// presenting view 沿 x 轴的位移。
+        presentingTranslateFactor = 0
+        /// presenting view 的缩放系数。
+        presentingScaleFactor = 1
+        /// presenting view 的视差强度。
+        presentingParallaxStrength = .zero
+    }
+
+    override func presentationTransitionWillBegin(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
+    override func presentationTransition(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
+    override func presentationTransitionDidEnd(to presentedViewController: UIViewController, from presentingViewController: UIViewController, _ completed: Bool) {}
+    override func dismissalTransitionWillBegin(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
+    override func dismissalTransition(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
+    override func dismissalTransitionDidEnd(to presentedViewController: UIViewController, from presentingViewController: UIViewController, _ completed: Bool) {}
+}
+```
+
+### SideMenuNavigationControllerDelegate
+
+让目标控制器遵循 [`SideMenuNavigationControllerDelegate`](Sources/SideMenu/SideMenuNavigationController.swift:71) 即可接收菜单显示/隐藏事件：
+
+```swift
 extension MyViewController: SideMenuNavigationControllerDelegate {
 
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
@@ -310,98 +332,59 @@ extension MyViewController: SideMenuNavigationControllerDelegate {
     }
 }
 ```
-*Note: setting the  `sideMenuDelegate` property on `SideMenuNavigationController` is optional. If your view controller adheres to the protocol then the methods will be called automatically.*
-### Advanced
-<details>
-<summary>Click for Details</summary>
 
-#### Multiple SideMenuManagers
-For simplicity, `SideMenuManager.default` serves as the primary instance as most projects will only need one menu across all screens. If you need to show a different SideMenu using gestures, such as from a modal view controller presented from a previous SideMenu, do the following:
-1. Declare a variable containing your custom `SideMenuManager` instance. You may want it to define it globally and configure it in your app delegate if menus will be used on multiple screens.
-``` swift
+> `SideMenuNavigationController.sideMenuDelegate` 属性是可选的——若 presenting view controller 已遵循该协议，则会自动接收回调。
+
+### 进阶
+
+<details>
+<summary>点击展开</summary>
+
+#### 多个 SideMenuManager
+
+为简化常见用法，[`SideMenuManager.default`](Sources/SideMenu/SideMenuManager.swift:46) 作为全局共享实例。如果你需要在不同场景下展示不同的 SideMenu（例如从一个由 SideMenu 弹出的 modal 控制器中再次展示菜单），可以这样做：
+
+1. 创建自定义 `SideMenuManager` 实例（建议在 AppDelegate / SceneDelegate 中以全局变量形式持有）：
+
+```swift
 let customSideMenuManager = SideMenuManager()
 ```
-2. Setup and display menus with your custom instance the same as you would with the  `SideMenuManager.default` instance.
-3. If using Storyboards, subclass your instance of `SideMenuNavigationController` and set its `sideMenuManager` property to your custom instance. This must be done before `viewDidLoad` is called:
-``` swift
-class MySideMenuNavigationController: SideMenuNavigationController {
+
+2. 用与 `default` 相同的方式来配置和展示菜单。
+3. 若使用 Storyboard，需要继承 `SideMenuNavigationController` 并在 `awakeFromNib` 中设置 `sideMenuManager`（必须早于 `viewDidLoad`）：
+
+```swift
+final class MySideMenuNavigationController: SideMenuNavigationController {
 
     let customSideMenuManager = SideMenuManager()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         sideMenuManager = customSideMenuManager
     }
 }
 ```
-Alternatively, you can set  `sideMenuManager` from the view controller that segues to your SideMenuNavigationController:
-``` swift
+
+或者在 segue 中赋值：
+
+```swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let sideMenuNavigationController = segue.destination as? SideMenuNavigationController {
         sideMenuNavigationController.sideMenuManager = customSideMenuManager
     }
 }
 ```
-*Important: displaying SideMenu instances directly over each other is not supported. Use `menuPushStyle = .subMenu` to display multi-level menus instead.*
 
-### SideMenuPresentationStyle
-If you want to create your own custom presentation style, create a subclass of `SideMenuPresentationStyle` and set your menu's `presentationStyle` to it:
-```swift
-class MyPresentStyle: SideMenuPresentationStyle {
+> ⚠️ 不支持将多个 SideMenu 直接叠加展示。需要多级菜单时请使用 `pushStyle = .subMenu`。
 
-    override init() {
-        super.init()
-        /// Background color behind the views and status bar color
-        backgroundColor = .black
-        /// The starting alpha value of the menu before it appears
-        menuStartAlpha = 1
-        /// Whether or not the menu is on top. If false, the presenting view is on top. Shadows are applied to the view on top.
-        menuOnTop = false
-        /// The amount the menu is translated along the x-axis. Zero is stationary, negative values are off-screen, positive values are on screen.
-        menuTranslateFactor = 0
-        /// The amount the menu is scaled. Less than one shrinks the view, larger than one grows the view.
-        menuScaleFactor = 1
-        /// The color of the shadow applied to the top most view.
-        onTopShadowColor = .black
-        /// The radius of the shadow applied to the top most view.
-        onTopShadowRadius = 5
-        /// The opacity of the shadow applied to the top most view.
-        onTopShadowOpacity = 0
-        /// The offset of the shadow applied to the top most view.
-        onTopShadowOffset = .zero
-        /// The ending alpha of the presenting view when the menu is fully displayed.
-        presentingEndAlpha = 1
-        /// The amount the presenting view is translated along the x-axis. Zero is stationary, negative values are off-screen, positive values are on screen.
-        presentingTranslateFactor = 0
-        /// The amount the presenting view is scaled. Less than one shrinks the view, larger than one grows the view.
-        presentingScaleFactor = 1
-        /// The strength of the parallax effect on the presenting view once the menu is displayed.
-        presentingParallaxStrength = .zero
-    }
-
-    /// This method is called just before the presentation transition begins. Use this to setup any animations. The super method does not need to be called.
-    override func presentationTransitionWillBegin(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
-    /// This method is called during the presentation animation. Use this to animate anything alongside the menu animation. The super method does not need to be called.
-    override func presentationTransition(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
-    /// This method is called when the presentation transition ends. Use this to finish any animations. The super method does not need to be called.
-    override func presentationTransitionDidEnd(to presentedViewController: UIViewController, from presentingViewController: UIViewController, _ completed: Bool) {}
-    /// This method is called just before the dismissal transition begins. Use this to setup any animations. The super method does not need to be called.
-    override func dismissalTransitionWillBegin(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
-    /// This method is called during the dismissal animation. Use this to animate anything alongside the menu animation. The super method does not need to be called.
-    override func dismissalTransition(to presentedViewController: UIViewController, from presentingViewController: UIViewController) {}
-    /// This method is called when the dismissal transition ends. Use this to finish any animations. The super method does not need to be called.
-    override func dismissalTransitionDidEnd(to presentedViewController: UIViewController, from presentingViewController: UIViewController, _ completed: Bool) {}
-}
-```
 </details>
 
-## Known Issues
-* Issue [#258](https://github.com/jonkykong/SideMenu/issues/258). Using `presentingViewControllerUseSnapshot` can help preserve the experience.
+## 已知问题
 
-## Thank You
-A special thank you to everyone that has [contributed](https://github.com/jonkykong/SideMenu/graphs/contributors) to this library to make it better. Your support is appreciated!
+* 详见上游 issue [#258](https://github.com/jonkykong/SideMenu/issues/258)。开启 `presentingViewControllerUseSnapshot` 可在一定程度上缓解。
 
 ## License
 
-SideMenu is available under the MIT license. See the LICENSE file for more info.
+SideMenu 基于 MIT 协议开源，详见 [LICENSE](LICENSE)。
+
+原作者：Jon Kent ([jonkykong/SideMenu](https://github.com/jonkykong/SideMenu))。

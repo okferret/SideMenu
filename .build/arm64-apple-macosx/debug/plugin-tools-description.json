@@ -1,0 +1,396 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.SideMenu-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/sources",
+      "importPath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Extensions.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Initializable.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Print.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Protected.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuAnimationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuInteractionController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuNavigationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationStyle.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPushCoordinator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuTransitionController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "SideMenu",
+      "moduleOutputPath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/Modules/SideMenu.swiftmodule",
+      "objects" : [
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Extensions.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Initializable.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Print.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Protected.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.swift.o",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.13",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/include/SideMenu-Swift.h",
+        "-swift-version",
+        "5",
+        "-enable-upcoming-feature",
+        "StrictConcurrency",
+        "-enable-upcoming-feature",
+        "InferSendableFromCaptures",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "sidemenu"
+      ],
+      "outputFileMapPath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Extensions.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Initializable.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Print.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/Protected.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/Modules/SideMenu.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Extensions.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Initializable.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Print.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Protected.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuAnimationController.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuInteractionController.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuManager.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuNavigationController.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationController.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationStyle.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPushCoordinator.swift",
+        "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuTransitionController.swift"
+      ],
+      "tempsPath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "SideMenu" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "SideMenu",
+      "-package-name",
+      "sidemenu",
+      "-c",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Extensions.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Initializable.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Print.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Protected.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuAnimationController.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuInteractionController.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuManager.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuNavigationController.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationController.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationStyle.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPushCoordinator.swift",
+      "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuTransitionController.swift",
+      "-I",
+      "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx10.13",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/include/SideMenu-Swift.h",
+      "-swift-version",
+      "5",
+      "-enable-upcoming-feature",
+      "StrictConcurrency",
+      "-enable-upcoming-feature",
+      "InferSendableFromCaptures",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "sidemenu",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "SideMenu" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Extensions.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Initializable.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Print.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Protected.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuAnimationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuInteractionController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuNavigationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationStyle.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPushCoordinator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuTransitionController.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/SideMenu.build/sources"
+    },
+    "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/okferret/Developer/Projects/SideMenu/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

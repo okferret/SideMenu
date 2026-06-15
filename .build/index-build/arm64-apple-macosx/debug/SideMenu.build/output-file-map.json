@@ -1,0 +1,89 @@
+{
+  "": {
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/primary.swiftdeps"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Extensions.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Extensions.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Extensions.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Extensions.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Extensions.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Initializable.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Initializable.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Initializable.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Initializable~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Initializable.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Initializable.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Print.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Print.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Print.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Print~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Print.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Print.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/Protected.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Protected.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Protected.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Protected~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Protected.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/Protected.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuAnimationController.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuAnimationController.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuInteractionController.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuInteractionController.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuManager.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuManager.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuNavigationController.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuNavigationController.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationController.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationController.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPresentationStyle.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPresentationStyle.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuPushCoordinator.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuPushCoordinator.dia"
+  },
+  "/Users/okferret/Developer/Projects/SideMenu/Sources/SideMenu/SideMenuTransitionController.swift": {
+    "dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.d",
+    "object": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.swift.o",
+    "swiftmodule": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController~partial.swiftmodule",
+    "swift-dependencies": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.swiftdeps",
+    "diagnostics": "/Users/okferret/Developer/Projects/SideMenu/.build/index-build/arm64-apple-macosx/debug/SideMenu.build/SideMenuTransitionController.dia"
+  }
+}
